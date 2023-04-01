@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class FakeStream<T> extends FakeSequence<T> {
-    private FakeStream(List<Supplier<T>> suppliers, int minLength, int maxLength, RandomService randomService, double nullRate) {
+    public FakeStream(List<Supplier<T>> suppliers, int minLength, int maxLength, RandomService randomService, double nullRate) {
         super(suppliers, minLength, maxLength, randomService, nullRate);
     }
 

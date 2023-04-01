@@ -12,6 +12,7 @@ public abstract class FakeSequence<T> implements Iterable<T> {
     protected final double nullRate;
     protected final int minLength;
     protected final int maxLength;
+    protected BaseProviders faker; // Moved from FakeStream.Builder
 
     protected FakeSequence(List<Supplier<T>> suppliers, int minLength, int maxLength, RandomService randomService, double nullRate) {
         this.suppliers = suppliers;
@@ -39,7 +40,7 @@ public abstract class FakeSequence<T> implements Iterable<T> {
         protected int minLength = -1;
         protected int maxLength = -1;
         protected double nullRate = 0d;
-        protected BaseProviders faker;
+        protected BaseProviders faker; // Moved from FakeStream.Builder
 
         protected Builder() {
             suppliers = new ArrayList<>();
@@ -103,6 +104,6 @@ public abstract class FakeSequence<T> implements Iterable<T> {
         public <S> S generate() {
             return build().get();
         }
-    }
 
+    }
 }
