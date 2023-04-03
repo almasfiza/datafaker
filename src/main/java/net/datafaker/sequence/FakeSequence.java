@@ -27,12 +27,7 @@ public abstract class FakeSequence<T> implements Iterable<T> {
         return false;
     }
 
-    public T singleton() {
-        if (nullRate == 0d || randomService.nextDouble() >= nullRate) {
-            return suppliers.get(randomService.nextInt(suppliers.size())).get();
-        }
-        return null;
-    }
+
 
     public static abstract class Builder<T> {
         protected final List<Supplier<T>> suppliers;

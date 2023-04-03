@@ -12,6 +12,13 @@ public class FakeStream<T> extends FakeSequence<T> {
         super(suppliers, minLength, maxLength, randomService, nullRate);
     }
 
+    public T singleton() {
+        if (nullRate == 0d || randomService.nextDouble() >= nullRate) {
+            return suppliers.get(randomService.nextInt(suppliers.size())).get();
+        }
+        return null;
+    }
+
     @SuppressWarnings("unchecked")
     public Stream<T> get() {
         if (isInfinite()) {

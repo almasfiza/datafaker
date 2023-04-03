@@ -139,7 +139,6 @@ class FakeStreamTest extends AbstractFakerTest {
             .maxLen(limit)
             .suppliers(BloodPressure::new, Glucose::new, Temperature::new)
             .build()
-            .singleton()
         ).isNotNull();
     }
 

@@ -13,6 +13,12 @@ public class FakeCollection<T> extends FakeSequence<T> {
     private FakeCollection(List<Supplier<T>> suppliers, int minLength, int maxLength, RandomService randomService, double nullRate) {
         super(suppliers, minLength, maxLength, randomService, nullRate);
     }
+    public T singleton() {
+        if (nullRate == 0d || randomService.nextDouble() >= nullRate) {
+            return suppliers.get(randomService.nextInt(suppliers.size())).get();
+        }
+        return null;
+    }
 
     @SuppressWarnings("unchecked")
     public List<T> get() {
