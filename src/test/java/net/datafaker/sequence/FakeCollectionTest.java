@@ -271,7 +271,7 @@ class FakeCollectionTest extends AbstractFakerTest {
         int limit = 10;
         assertThat(faker.<Data>collection().minLen(limit).maxLen(limit)
             .suppliers(BloodPressure::new, Glucose::new, Temperature::new)
-            .build().singleton()).isNotNull();
+            .build()).isNotNull();
     }
 
     @Test
